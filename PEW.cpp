@@ -109,27 +109,35 @@ void printc(string text, int coloration) {
 }
 char pix = 219;
 
-void game_over() {
-  ClearScreen();
-  cout << endl << endl << endl << endl;
-  color(15);
-  printf("                  G)gggg   A)aa    M)mm mmm  E)eeeeee \n ");
-  printf("                G)       A)  aa  M)  mm  mm E)       \n ");
-  printf("               G)  ggg  A)    aa M)  mm  mm E)eeeee  \n ");
-  printf("               G)    gg A)aaaaaa M)  mm  mm E)       \n ");
-  printf("                G)   gg A)    aa M)      mm E)       \n ");
-  printf("                 G)ggg  A)    aa M)      mm E)eeeeee \n ");
-  cout << endl;
-  color(12);
-  printf("                  O)oooo  V)    vv E)eeeeee R)rrrrr   \n ");
-  printf("                O)    oo V)    vv E)       R)    rr  \n ");
-  printf("                O)    oo V)    vv E)eeeee  R)  rrr   \n ");
-  printf("                O)    oo  V)  vv  E)       R) rr     \n ");
-  printf("                O)    oo   V)vv   E)       R)   rr   \n ");
-  printf("                 O)oooo     V)    E)eeeeee R)    rr  \n ");
-  Beep(400, 1500);
-  system("EXIT");
+static const char* const kGameOverASCIIArtPart1 =
+  "                  G)gggg   A)aa    M)mm mmm  E)eeeeee\n"
+  "                G)       A)  aa  M)  mm  mm E)       \n"
+  "               G)  ggg  A)    aa M)  mm  mm E)eeeee  \n"
+  "               G)    gg A)aaaaaa M)  mm  mm E)       \n"
+  "                G)   gg A)    aa M)      mm E)       \n"
+  "                 G)ggg  A)    aa M)      mm E)eeeeee \n";
+
+static const char* const kGameOverASCIIArtPart2 =
+"                   O)oooo  V)    vv E)eeeeee R)rrrrr  \n"
+"                  O)    oo V)    vv E)       R)    rr  \n "
+"                 O)    oo V)    vv E)eeeee  R)  rrr   \n "
+"                 O)    oo  V)  vv  E)       R) rr     \n "
+"                 O)    oo   V)vv   E)       R)   rr   \n "
+"                  O)oooo     V)    E)eeeeee R)    rr  \n ";
+
+void game_over()
+{
+    ClearScreen();
+    cout << endl << endl << endl << endl;
+   color(15); //White
+    std::puts(kGameOverASCIIArtPart1);
+    cout << endl << endl;
+   color(12); //Red
+    std::puts(kGameOverASCIIArtPart2);
+     Beep(400, 1500);
+    system("EXIT");
 }
+
 
 void game() {
   int Exp = 000;
@@ -141,7 +149,6 @@ void game() {
   char colic;
 
   /*Choisir la couleur de l'oeuf (cool, non?)
-
   La couleur:
   10 correspond au vert
   11 correspond au bleu
@@ -440,6 +447,8 @@ void game() {
       Interface[6] = "|     4.PUNISH      |       " + str + dpr + "      |";
     } else if (Exp < 1000) {
       Interface[6] = "|     4.PUNISH      |       " + str + dpr + "     |";
+    } else if (Exp < 10000){
+      Interface[6] = "|     4.PUNISH      |       " + str + dpr + "    |";
     }
 
     for (int a = 0; a < 24; a++) {
