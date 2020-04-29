@@ -500,25 +500,25 @@ void game() {
 
     }
 
-    if (Exp >= 1000 && Etat == "Oeuf") {
+    if (Exp >= 1000 ) {
       Etat = "Sortie";
       dpr = "/2500";
     }
 
-    if (Exp >= 2500 && Etat == "Sortie") {
+    if (Exp >= 2500 ) {
       if (Hap >= 15) {
         Etat = "Bebe";
         dpr = "/3000";
       }
     }
-    if (Exp >= 3000 && Etat == "Bebe") {
+    if (Exp >= 3000 ) {
       if (Hun >= 20) {
         Etat = "Enfant";
         dpr = "/5000";
       }
     }
 
-    if (Exp >= 5000 && Etat == "Enfant") {
+    if (Exp >= 5000 ) {
       if (Dis >= 28) {
         Etat = "Ado";
         dpr = "/9500";
