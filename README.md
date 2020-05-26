@@ -39,3 +39,6 @@ Tout le jeu a été fait à partir de rien et seulement en ASCII.
 
 v1.4:
 -Correction de bugs.
+v1.6:
+-Correction de bugs.
+-Ajout d'un cheat code (à vous de le découvrir).
