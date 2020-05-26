@@ -80,7 +80,7 @@ void color(int col /*Fonction pour ajouter de la couleur*/ ) {
   SetConsoleTextAttribute(hConsole, col);
 }
 
-void ClearScreen( /*Effacer l'écran*/ ) {
+void ClearScreen( /*Effacer l'Ã©cran*/ ) {
   HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
   if (hStdOut == INVALID_HANDLE_VALUE) return;
 
@@ -302,6 +302,7 @@ void game() {
   //Lancement du jeu
   int Hun = 0 /*/30*/ , Hap = 0 /*/30*/ , Dis = 0 /*/30*/ ; /**< Creation des statistiques de Pew :D */
   string Etat = "Adulte";
+  Etat = "Oeuf";
   string textInterface1 = "                                        ";
   string textInterface2 = "                                        ";
   string dpr = "/1000";
@@ -309,7 +310,6 @@ void game() {
   ClearScreen();
   while (JeuEnCours) //Tant que le jeu est en cours:
   {
-    Etat = "Oeuf";
 
     ranA = rand() % 4;
     ranB = rand() % 2;
@@ -329,8 +329,8 @@ void game() {
     {
       color_of_the_interface = 11;
       /**
-      Le jeu est très simple:
-      Il faut juste deviner à quelle direction
+      Le jeu est trÃ¨s simple:
+      Il faut juste deviner Ã  quelle direction
       pense Pew
       **/
       ranC = rand() % 2;
@@ -339,7 +339,7 @@ void game() {
       Interface[13] = "|by Pew. Press (R)IGHT or (L)EFT.        |";
       if (GetAsyncKeyState('R')) {
         if (ranC == 1) {
-          //Gagné
+          //GagnÃ©
           Interface[12] = "|You win!                                |";
           Interface[13] = "|                                        |";
           if (Hap + 4 < 30) {
@@ -365,7 +365,7 @@ void game() {
         PlayGame = 0;
       } else if (GetAsyncKeyState('L')) {
         if (ranC == 0) {
-          //Gagné
+          //GagnÃ©
           if (Hap + 4 < 30) {
             Hap += 4;
           }
@@ -851,7 +851,7 @@ if (Etat == "Bebe") {
 
     if (Exp >= 9500) {
             Jn = false;
-      //Gagné!
+      //GagnÃ©!
       PlayGame = 0;
       Interface[0] =  "+----------------------------------------+";
       Interface[1] =  "|                                        |";
